@@ -17,11 +17,8 @@ before_install:
 - source activate test-environment
 
 install:
-- python setup.py -q install
-before_script:
+- pip install .
 - pip install pytest
-- pip install pytest-timeout
 - conda list # list installed package versions
 # command to run tests
-script:
-- pytest
+script: pytest
