@@ -24,4 +24,4 @@ before_script:
 - conda list # list installed package versions
 # command to run tests
 script:
-  - python -m pytest tests/
+- python -m pytest tests/
