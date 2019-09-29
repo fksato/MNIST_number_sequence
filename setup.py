@@ -27,7 +27,7 @@ setup(
 			    ],
 	entry_points={
 				'console_scripts':[
-									'generate_skewed_sequence = MNIST_number_sequence.generate_sequence:main',
+									'generate_skewed_sequence = MNIST_number_sequence.generate_skewed_sequence:main',
 									'generate_sequence = MNIST_number_sequence.generate_sequence:main'
 						          ]
 
