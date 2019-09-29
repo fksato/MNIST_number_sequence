@@ -3,8 +3,8 @@ import pytest
 
 class TestImageUtilsGetDigits:
 	@pytest.mark.parametrize(['segment', 'digits', 'expected_image_shape', 'expected_num_images']
-							, [ ("train", 12345, 28, 5)
-		                         , ("test", 12345, 28, 5)])
+							, [ ("train", [1,2,3,4,5], 28, 5)
+		                         , ("test", [1,2,3,4,5], 28, 5)])
 	def test_get_digits(self, segment, digits, expected_image_shape, expected_num_images):
 		from mnist_loader import MNISTLoader
 		from image_utils import get_digits
@@ -31,9 +31,9 @@ class TestImageUtilsGetDigits:
 class TestImageUtilsCombineImages:
 	@pytest.mark.parametrize(['segment', 'digits', 'digit_spacing', 'image_width', 'expected_image_width'
 	                        , 'check_img_width_limit']
-							, [('train', 123456, (-10,10), 200, 200, True)
-							   , ('train', 123456, (-90,0), 0, None, False)
-							   , ('test', 123456, (-10,10), 200, 200, True)])
+							, [('train', [1,2,3,4,5,6], (-10,10), 200, 200, True)
+							   , ('train', [1,2,3,4,5,6], (-90,0), 0, None, False)
+							   , ('test', [1,2,3,4,5,6], (-10,10), 200, 200, True)])
 	def test_combine_images(self, segment, digits, digit_spacing, image_width, expected_image_width
 	                        , check_img_width_limit):
 		from mnist_loader import MNISTLoader
