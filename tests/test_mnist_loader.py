@@ -6,6 +6,7 @@ class TestMNISTLoader:
 								, ("test", 10000, 28)])
 	def test_create_MNIST_ds(self, segment, expected_records_count, image_size):
 		from MNIST_number_sequence.mnist_loader import MNISTLoader
+
 		MNIST_ds = MNISTLoader(dataset_regime=segment)
 		assert len(list(MNIST_ds.digit_hash.keys())) == 10
 

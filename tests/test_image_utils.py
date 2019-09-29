@@ -8,7 +8,7 @@ class TestImageUtilsGetDigits:
 	def test_get_digits(self, segment, digits, expected_image_shape, expected_num_images):
 		from MNIST_number_sequence.mnist_loader import MNISTLoader
 		from MNIST_number_sequence.image_utils import get_digits
-		from MNIST_number_sequence.image_utils import skew
+		from MNIST_number_sequence.image_utils.image_transformations import skew
 		MNIST_ds = MNISTLoader(dataset_regime=segment)
 
 		check_extents, check_digits = get_digits(digits, MNIST_ds, tight=False, apply=None)
@@ -38,7 +38,7 @@ class TestImageUtilsCombineImages:
 	                        , check_img_width_limit):
 		from MNIST_number_sequence.mnist_loader import MNISTLoader
 		from MNIST_number_sequence.image_utils import get_digits, combine_images
-		from MNIST_number_sequence.image_utils import skew
+		from MNIST_number_sequence.image_utils.image_transformations import skew
 		MNIST_ds = MNISTLoader(dataset_regime=segment)
 
 		test_img_extents, test_img_array = get_digits(digits, MNIST_ds, tight=False, apply=None)
