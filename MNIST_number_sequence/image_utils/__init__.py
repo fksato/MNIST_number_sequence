@@ -1,6 +1,6 @@
 import warnings
 import numpy as np
-from mnist_loader import IMG_HEIGHT, IMG_WIDTH
+from MNIST_number_sequence.mnist_loader import IMG_HEIGHT
 
 
 def get_digits(digits, mnist_images_ds, tight=False, apply=None):

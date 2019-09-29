@@ -6,9 +6,9 @@ class TestImageUtilsGetDigits:
 							, [ ("train", [1,2,3,4,5], 28, 5)
 		                         , ("test", [1,2,3,4,5], 28, 5)])
 	def test_get_digits(self, segment, digits, expected_image_shape, expected_num_images):
-		from mnist_loader import MNISTLoader
-		from image_utils import get_digits
-		from image_utils.image_transformations import skew
+		from MNIST_number_sequence.mnist_loader import MNISTLoader
+		from MNIST_number_sequence.image_utils import get_digits
+		from MNIST_number_sequence.image_utils import skew
 		MNIST_ds = MNISTLoader(dataset_regime=segment)
 
 		check_extents, check_digits = get_digits(digits, MNIST_ds, tight=False, apply=None)
@@ -36,9 +36,9 @@ class TestImageUtilsCombineImages:
 							   , ('test', [1,2,3,4,5,6], (-10,10), 200, 200, True)])
 	def test_combine_images(self, segment, digits, digit_spacing, image_width, expected_image_width
 	                        , check_img_width_limit):
-		from mnist_loader import MNISTLoader
-		from image_utils import get_digits, combine_images
-		from image_utils.image_transformations import skew
+		from MNIST_number_sequence.mnist_loader import MNISTLoader
+		from MNIST_number_sequence.image_utils import get_digits, combine_images
+		from MNIST_number_sequence.image_utils import skew
 		MNIST_ds = MNISTLoader(dataset_regime=segment)
 
 		test_img_extents, test_img_array = get_digits(digits, MNIST_ds, tight=False, apply=None)

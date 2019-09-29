@@ -1,6 +1,6 @@
 import numpy as np
-from image_utils import get_digits, combine_images
-from image_utils.image_transformations import skew
+from MNIST_number_sequence.image_utils import get_digits, combine_images
+from MNIST_number_sequence.image_utils import skew
 
 import argparse
 
@@ -18,7 +18,7 @@ def generate_skewed_numbers_sequence(digits, spacing_range, image_width
 	:return: float32 array of combined digit image
 	"""
 	from PIL import Image
-	from mnist_loader import MNISTLoader
+	from MNIST_number_sequence.mnist_loader import MNISTLoader
 
 	mnist_ds = MNISTLoader(dataset_regime)
 

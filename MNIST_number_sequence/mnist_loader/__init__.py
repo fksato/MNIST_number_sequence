@@ -3,7 +3,7 @@ import gzip
 import struct
 import random
 import numpy as np
-import config
+from MNIST_number_sequence import config
 
 import tqdm
 
