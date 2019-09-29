@@ -1,6 +1,6 @@
 import numpy as np
-from image_utils import get_digits, combine_images
-from image_utils.image_transformations import skew
+from MNIST_number_sequence.image_utils import get_digits, combine_images
+from MNIST_number_sequence.image_utils.image_transformations import skew
 
 import argparse
 
