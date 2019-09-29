@@ -22,6 +22,7 @@ pip install "MNIST_number_generator @ git+https://github.com/fksato/MNIST_number
 ```
 
 ### Requirements
+* python >= 3.6
 * numpy >= 1.16.4
 * pillow >= 6.1.0
 
