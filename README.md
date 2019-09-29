@@ -78,11 +78,13 @@ to pull digit images from. (default="train")
 * __image_save_name__: an optional parameter to specify the file name of the produced digit image 
 (default='combined_sequence.png')
 
-### Using the __generate_sequence.py__ convenience script from command line
-Users can use the __generate_sequence.py__ by invoking it from a command-line terminal.
+### Using the __generate_sequence__ from command line
+If installed via pip or by building from source using the setup.py, users can use the __generate_sequence__ by 
+invoking it from a command-line terminal.
+
 To get help with the available options call:
 ```bash
-python generate_sequence.py -h
+generate_sequence -h
 ```
 __generate_sequence.py__ 
 * __-d, --digits__: a sequence of numbers to generate an image. Each digit in the sequence 
@@ -102,7 +104,18 @@ dataset to retrieve from. Options include: __"train"__ or __"test"__. (default="
  
 __Example__:
 ```bash
-python generate_numbers_sequence.py -d 1 2 3 4 5 -s -10 10 -w 150 --dataset_regime "testing" --image_save_name "combined_12345.png"
+generate_numbers_sequence -d 1 2 3 4 5 -s -10 10 -w 150 --dataset_regime "testing" --image_save_name "combined_12345.png"
+```
+
+### Using the __generate_sequence.py__ convenience script from command line
+The user can use the __generate_sequence.py__ convenience script directly bby invoking it in a console terminal.
+```bash
+python <path to generate_sequence>/generate_sequence.py [OPTIONS]
+```
+
+The available arguments are the same as above and a detailed argument list can be printed to screen using:
+```bash
+python <path to generate_sequence>/generate_sequence.py -h
 ```
 
 ### Using the __image_utils__ library

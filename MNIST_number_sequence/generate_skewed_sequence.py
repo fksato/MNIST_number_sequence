@@ -47,8 +47,10 @@ def main():
 	                    , help='MNIST dataset regime: "train" or "test"')
 	parser.add_argument('--image_save_name', type=str, default='combined_skewed_sequence.png'
 	                    , help='image file name for combined image')
-	parser.add_argument('--remove_skew', dest='skew_img', action='store_false')
-	parser.add_argument('--make_tight', dest='tight', action='store_true')
+	parser.add_argument('--remove_skew', dest='skew_img', action='store_false'
+	                    , help='Flag to ignore skewing of digit images')
+	parser.add_argument('--make_tight', dest='tight', action='store_true'
+	                    , help='Flag to calculate extents from most significant pixels')
 
 	args = parser.parse_args()
 	generate_skewed_numbers_sequence(**vars(args))
