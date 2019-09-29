@@ -18,7 +18,7 @@ before_install:
 
 install:
 - pip install .
-# - pip install pytest
+- pip install pytest
 - conda list # list installed package versions
 # command to run tests
 script: pytest

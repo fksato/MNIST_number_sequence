@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 requirements = [
     "numpy",
@@ -11,8 +11,8 @@ requirements = [
 setup(
 	name='number_sequence_generator',
 	version='0.1.0',
-	packages=['config', 'image_utils', 'mnist_loader'],
-	url='',
+	packages=find_packages(exclude=['tests']),
+	url='https://github.com/fksato/MNIST_number_sequence',
 	author='Fukushi Sato',
 	author_email='f.kazuo.sato@gmail.com',
 	description='generate a sequence of numbers from MNIST dataset',
