@@ -19,7 +19,7 @@ def generate_numbers_sequence(digits, spacing_range, image_width
 
 	mnist_ds = MNISTLoader(dataset_regime)
 
-	img_extents, img_array = get_digits(digits, mnist_ds, apply=None)
+	img_extents, img_array = get_digits(digits, mnist_ds)
 	img_sequence = combine_images(img_array, img_extents, spacing_range, image_width)
 	img_sequence = img_sequence.astype(np.uint8)
 
@@ -32,7 +32,7 @@ def main():
 	parser = argparse.ArgumentParser(
 		description="Simple feature extraction"
 	)
-	parser.add_argument('-d', '--digits', type=int, help='sequence of numbers to generate')
+	parser.add_argument('-d', '--digits', type=int, nargs="+", help='sequence of numbers to generate')
 	parser.add_argument('-s', '--spacing_range', nargs=2, type=int, help='min/max range of spacing between digits')
 	parser.add_argument('-w', '--image_width', type=int, help='width of final image of sequence of digits')
 	parser.add_argument('--dataset_regime', type=str, default='train'

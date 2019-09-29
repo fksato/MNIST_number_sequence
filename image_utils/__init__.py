@@ -11,13 +11,12 @@ def get_digits(digits, mnist_images_ds, tight=False, apply=None):
 	:param apply: Image transformations to apply
 	:return:
 	"""
-	if isinstance(digits, int):
-		digits = str(digits)
+	if not isinstance(digits, list):
+		digits = [digits]
 
 	image_array = []
 	image_widths = []
 	for digit in digits:
-		digit=int(digit)
 		digit_img = mnist_images_ds.get_digit_image(digit)
 		# apply transformations for a select number of digits:
 		if apply is not None and digit % 2 == 0:
@@ -114,7 +113,7 @@ def check_valid_input_width(input_image_width, digit_image_widths, num_images, m
 	:param min_max_spacing: spacing limits between digits
 	:return: boolean flag of whether the input image width is a valid width with the provided digits and spacing limits
 	"""
-	probable_image_width = (sum(digit_image_widths) + num_images * np.mean(min_max_spacing))
+	probable_image_width = num_images * (np.mean(digit_image_widths) + np.mean(min_max_spacing))
 	if input_image_width < probable_image_width > 0:
 		warnings.warn(f'Provided combination of digit sequence and spacing cannot fit into image width\n'
 		              f'Probable calculated image width = {probable_image_width}')
