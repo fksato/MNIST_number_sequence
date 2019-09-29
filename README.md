@@ -18,7 +18,7 @@
 ### Installation
 
 ```
-pip install "MNIST_number_generator @ git+https://github.com/fksato/MNIST_number_sequence"
+pip install "MNIST_number_sequence @ git+https://github.com/fksato/MNIST_number_sequence"
 ```
 
 ### Requirements
