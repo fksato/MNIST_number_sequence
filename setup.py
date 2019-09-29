@@ -9,7 +9,7 @@ requirements = [
 ]
 
 setup(
-	name='number_sequence_generator',
+	name='MNIST_number_sequence',
 	version='0.1.0',
 	packages=find_packages(exclude=['tests']),
 	url='https://github.com/fksato/MNIST_number_sequence',
