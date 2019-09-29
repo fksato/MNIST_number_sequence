@@ -15,10 +15,17 @@
 * Designates ROOT_DIR, where all MNIST dataset I/O operations occur
 * Creates "dataset" directory where MNIST datasets are stored
  
-### Installation
+## Installation
 
+### Recommended:
 ```
 pip install "MNIST_number_sequence @ git+https://github.com/fksato/MNIST_number_sequence"
+```
+#### From source:
+```
+git clone https://github.com/fksato/MNIST_number_sequence.git
+cd MNIST_number_sequence
+python install setup.py
 ```
 
 ### Requirements
