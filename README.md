@@ -18,7 +18,7 @@
 ### Installation
 
 ```
-pip install "MNIST_number_generator @ git+https://github.com/fksato/MNIST_number_generator"
+pip install "MNIST_number_generator @ git+https://github.com/fksato/MNIST_number_sequence"
 ```
 
 ### Requirements
@@ -31,7 +31,7 @@ _All requirements will be met automatically when pip installed_
 ### Usage
 Loading MNIST dataset
 ```python
-from number_sequence_generator.mnist_loader import MNISTLoader
+from MNIST_number_sequence.mnist_loader import MNISTLoader
 MNIST_dataset = MNISTLoader(segment="train")
 ```
 segment can be either "train" or "test" and will load the respective MNIST image and label 
@@ -84,7 +84,7 @@ python generate_numbers_sequence.py -d 1 2 3 4 5 -s -10 10 -w 150 --dataset_regi
 Users can get retreive a list of digit images from the MNISTLoader by calling the 
 __get_digits__ function
 ```python
-from number_sequence_generator.image_utils import get_digits, combine_images
+from MNIST_number_sequence.image_utils import get_digits, combine_images
 image_extents, digit_images = get_digits(digits=[1,2,3,4,5], MNIST_dataset)
 ```
 ___
