@@ -68,6 +68,9 @@ def combine_images(image_array, image_extents, min_max_spacing, image_width=None
 
 		# compute combined image width:
 		combined_image_width = sum(digit_image_widths) + sum(image_starts[:-1])
+		width_check = max([sum(digit_image_widths[0:i + 1]) + sum(image_starts[0:i + 1])
+		                   for i in range(0, num_images)])
+		combined_image_width = max(combined_image_width, width_check)
 
 		validate_starts = check_valid_starts(digit_image_widths, image_starts)
 

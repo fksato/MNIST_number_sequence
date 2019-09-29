@@ -31,9 +31,9 @@ class TestImageUtilsGetDigits:
 class TestImageUtilsCombineImages:
 	@pytest.mark.parametrize(['segment', 'digits', 'digit_spacing', 'image_width', 'expected_image_width'
 	                        , 'check_img_width_limit']
-							, [('train', 123456, (-10,10), 190, 190, True)
+							, [('train', 123456, (-10,10), 200, 200, True)
 							   , ('train', 123456, (-90,0), 0, None, False)
-							   , ('test', 123456, (-10,10), 190, 190, True)])
+							   , ('test', 123456, (-10,10), 200, 200, True)])
 	def test_combine_images(self, segment, digits, digit_spacing, image_width, expected_image_width
 	                        , check_img_width_limit):
 		from mnist_loader import MNISTLoader
@@ -48,9 +48,7 @@ class TestImageUtilsCombineImages:
 			assert test_combined.shape[1] == expected_image_width
 
 		test_img_extents, test_img_array = get_digits(digits, MNIST_ds, tight=True, apply=skew)
-		test_combined = combine_images(test_img_array, test_img_extents, digit_spacing, image_width=image_width)
-		if image_width is not None and image_width != 0:
-			assert test_combined.shape[1] == expected_image_width
+		combine_images(test_img_array, test_img_extents, digit_spacing, image_width=None)
 
 		if check_img_width_limit:
 			with pytest.raises(Exception):

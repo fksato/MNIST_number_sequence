@@ -24,6 +24,7 @@ def generate_skewed_numbers_sequence(digits, spacing_range, image_width
 	apply = None
 	if skew_img:
 		apply = skew
+		image_width = None
 
 	img_extents, img_array = get_digits(digits, mnist_ds, tight=True, apply=apply)
 	img_sequence = combine_images(img_array, img_extents, spacing_range, image_width)
