@@ -38,6 +38,8 @@ def combine_images(image_array, image_extents, min_max_spacing, image_width=None
 	:param image_width: final width of combined images. If None, compute image width
 	:return: a single image created by the combination of images in image array
 	"""
+	assert min_max_spacing[0] < min_max_spacing[1]
+
 	digit_image_widths = [extents[1] - extents[0] for extents in image_extents]
 	num_images = len(image_array)
 	image_starts = []
@@ -89,7 +91,6 @@ def combine_images(image_array, image_extents, min_max_spacing, image_width=None
 		combined_image[0:IMG_HEIGHT, start:start + digit_image_widths[idx]] = \
 			np.where(digit > 0, digit, combined_image[0:IMG_HEIGHT, start:start + digit_image_widths[idx]])
 		# increment start by width of digit image, offset with the next image start:
-		# start += digit_image_widths[idx] + image_starts[idx + 1]
 		start += digit_image_widths[idx] + image_starts[idx + 1]
 	return combined_image
 

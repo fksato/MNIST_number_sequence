@@ -25,5 +25,12 @@ setup(
 			        'Programming Language :: Python :: 3.6',
 			        'Programming Language :: Python :: 3.7',
 			    ],
+	entry_point={
+				'console_scripts':[
+									'generate_skewed_sequence = MNIST_number_sequence.generate_sequence:main',
+									'generate_sequence = MNIST_number_sequence.generate_sequence:main'
+						          ]
+
+				},
 	test_suite='tests',
 )

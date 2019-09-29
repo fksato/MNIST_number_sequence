@@ -46,7 +46,7 @@ Users may also choose to get an image from the dataset at an arbitrary index
 ```python
 MNIST_dataset.get_image_at(idx=532)
 ```
-The return type of these functions are an uint8 numpy ndarray of size [28, 28]
+The return type of these functions are a uint8 numpy ndarray of size [28, 28]
 
 ## Generating a sequence of numbers
 Users can generate an image of a sequence of digit images from MNIST dataset by either 
@@ -64,8 +64,7 @@ This function also returns a float32 numpy ndarray that can be used for any user
 is [28, image_width], where __image_width__ can be set by the user or computed from the arguments passed into the 
 function.
 
-__generate_sequence(digits, spacing_range, image_width, dataset_regime='train'
-, image_save_name='combined_sequence.png')__
+__generate_sequence(digits, spacing_range, image_width, dataset_regime, image_save_name)__
 * __digits__: a desired sequence of integers between 0-9 as a list
 * __spacing_range__: a tuple that represents the minimum/maximum allowable spacing between 
 each digit in the final combined image
@@ -76,11 +75,12 @@ each digit in the final combined image
 enough image to accomodate the number of digits and the spacing between each digit_
 * __dataset_regime__: an optional parameter that specifies which MNIST dataset regime ("train" or "test")
 to pull digit images from. (default="train")
-* __image_save_name__: an optional parameter to specify the file name of the produced digit image
+* __image_save_name__: an optional parameter to specify the file name of the produced digit image 
+(default='combined_sequence.png')
 
 ### Using the __generate_sequence.py__ convenience script from command line
 Users can use the __generate_sequence.py__ by invoking it from a command-line terminal.
-To get help in the available options call:
+To get help with the available options call:
 ```bash
 python generate_sequence.py -h
 ```
