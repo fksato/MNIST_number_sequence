@@ -1,9 +1,9 @@
 import numpy as np
-from MNIST_number_sequence.image_utils import get_digits, combine_images
+from image_utils import get_digits, combine_images
 
 import argparse
 
-def generate_numbers_sequence(digits, spacing_range, image_width
+def generate_numbers_sequence(digits, spacing_range, image_width=None
                               , dataset_regime='train', image_save_name='combined_sequence.png'
                               , *args, **kwargs):
 	"""

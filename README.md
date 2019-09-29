@@ -53,7 +53,32 @@ Users can generate an image of a sequence of digit images from MNIST dataset by 
 utilizing the __image_utils__ library, or by using the __generate_sequence.py__ convenience 
 script.
 
-### Using the __generate_sequence.py__ convenience script
+### Using __generate_numbers_sequence__ 
+Users can use __generate_numbers_sequence__ by importing it into any project:
+```python
+from MNIST_number_sequence import generate_sequence
+combined_image = generate_sequence([1, 2, 3, 4, 5], (-10,10), 145)
+```
+__generate_sequence__ will save a copy of the generated image into the current working directory of the calling script. 
+This function also returns a float32 numpy ndarray that can be used for any user needs. The size of the returned array 
+is [28, image_width], where __image_width__ can be set by the user or computed from the arguments passed into the 
+function.
+
+__generate_sequence(digits, spacing_range, image_width, dataset_regime='train'
+, image_save_name='combined_sequence.png')__
+* __digits__: a desired sequence of integers between 0-9 as a list
+* __spacing_range__: a tuple that represents the minimum/maximum allowable spacing between 
+each digit in the final combined image
+* __image_width__: final width of the combined image. If left empty, the final width of the sequence
+ of digits will be computed from the number of digit images and the allowable spacing between digits 
+ (default=None)
+ **_care should be taken when specifying the __image_width__. The user should specify a width large 
+enough image to accomodate the number of digits and the spacing between each digit_
+* __dataset_regime__: an optional parameter that specifies which MNIST dataset regime ("train" or "test")
+to pull digit images from. (default="train")
+* __image_save_name__: an optional parameter to specify the file name of the produced digit image
+
+### Using the __generate_sequence.py__ convenience script from command line
 Users can use the __generate_sequence.py__ by invoking it from a command-line terminal.
 To get help in the available options call:
 ```bash
