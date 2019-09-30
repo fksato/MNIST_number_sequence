@@ -1,7 +1,9 @@
 # MNIST Number Sequence Generator
 ### Generate a sequence of handwritten numbers using MNIST data
 
-![image](combined_sequence.png)
+![image sequence 1](combined_sequence.png)
+
+![image sequence 2](combined_skewed_sequence.png)
 
 ### Main modules
 * mnist_loader
