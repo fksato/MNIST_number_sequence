@@ -1,6 +1,8 @@
 # MNIST Number Sequence Generator
 ### Generate a sequence of handwritten numbers using MNIST data
 
+![image](combined_sequence.png)
+
 ### Main modules
 * mnist_loader
     
@@ -33,7 +35,7 @@ python install setup.py
 * numpy >= 1.16.4
 * pillow >= 6.1.0
 
-_All requirements will be met automatically when pip installed_
+_All requirements will be met automatically when pip/setup.py installed_
 
 ### Usage
 Loading MNIST dataset
@@ -78,7 +80,8 @@ each digit in the final combined image
 * __image_width__: final width of the combined image. If left empty, the final width of the sequence
  of digits will be computed from the number of digit images and the allowable spacing between digits 
  (default=None)
- **_care should be taken when specifying the __image_width__. The user should specify a width large 
+ 
+**_care should be taken when specifying the __image_width__. The user should specify a width large 
 enough image to accomodate the number of digits and the spacing between each digit_
 * __dataset_regime__: an optional parameter that specifies which MNIST dataset regime ("train" or "test")
 to pull digit images from. (default="train")
@@ -102,6 +105,7 @@ between each digit. The two numbers must be separated by a space. Order of the n
 be __minimum first__ then the maximum allowable spacing.
 * __-w, --image_width__: An optional flag which the user can explicitly set the image width of 
 the final combined image. (default=None)
+
 **_care should be taken to specify a large enough image width to accomodate the number of 
 digits and the spacing between each digit_
 * __--dataset_regime__: An optional string parameter that specifies which MNIST 
@@ -115,7 +119,7 @@ generate_numbers_sequence -d 1 2 3 4 5 -s -10 10 -w 150 --dataset_regime "testin
 ```
 
 ### Using the __generate_sequence.py__ convenience script from command line
-The user can use the __generate_sequence.py__ convenience script directly bby invoking it in a console terminal.
+The user can use the __generate_sequence.py__ convenience script directly by invoking it.
 ```bash
 python <path to generate_sequence>/generate_sequence.py [OPTIONS]
 ```
@@ -170,3 +174,8 @@ of digit images as a single image.
 
 At this step, the user may choose to do as they wish with the image array. To save the image,
  the user can use a library such as pillow, which is included in this package.
+ 
+## Contributing
+for pull requests please send an email to f.kazuo.sato@gmail.com
+
+Continuous integration brought to you by [Travis CI](https://travis-ci.com/) 
