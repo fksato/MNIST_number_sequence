@@ -115,7 +115,8 @@ def check_valid_input_width(input_image_width, digit_image_widths, num_images, m
 	:return: boolean flag of whether the input image width is a valid width with the provided digits and spacing limits
 	"""
 	probable_image_width = num_images * (np.mean(digit_image_widths) + np.mean(min_max_spacing))
-	if input_image_width < probable_image_width > 0:
+	non_negative_width = input_image_width + probable_image_width > 0
+	if input_image_width < probable_image_width > 0 or not non_negative_width:
 		warnings.warn(f'Provided combination of digit sequence and spacing cannot fit into image width\n'
 		              f'Probable calculated image width = {probable_image_width}')
 		return False
