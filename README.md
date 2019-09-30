@@ -26,9 +26,11 @@
 pip install "MNIST_number_sequence @ git+https://github.com/fksato/MNIST_number_sequence"
 ```
 #### From source:
-```
+```bash
 git clone https://github.com/fksato/MNIST_number_sequence.git
 cd MNIST_number_sequence
+pip install .
+## or
 python install setup.py
 ```
 
@@ -98,7 +100,7 @@ To get help with the available options call:
 ```bash
 generate_sequence -h
 ```
-__generate_sequence.py__ 
+__generate_sequence__ 
 * __-d, --digits__: a sequence of numbers to generate an image. Each digit in the sequence 
 should be separated by a space and can only be single digit number found in MNIST. 
 (cannot be a number less than 0 or larger than 9)
@@ -177,6 +179,49 @@ of digit images as a single image.
 At this step, the user may choose to do as they wish with the image array. To save the image,
  the user can use a library such as pillow, which is included in this package.
  
+### Under Development
+Current image transformations available is found under __MNIST_number_sequence.image_utils.image_transformations__
+An implementation of __generate_sewuence__ that utilizes the skew transformation is provided by the 
+__generate_skewed_sequence.py__.
+
+Invoking by command line is possible using:
+```bash
+generate_skewed_sequence <OPTIONS>
+```
+
+A full list of the available arguments can be printed to screen by:
+```bash
+generate_skewed_sequence -h
+```
+
+__generate_skewed_sequence__
+
+* __-d, --digits__: a sequence of numbers to generate an image. Each digit in the sequence 
+should be separated by a space and can only be single digit number found in MNIST. 
+(cannot be a number less than 0 or larger than 9)
+* __-s, --spacing_range__: two numbers that represents the minimum/maximum allowable spacing 
+between each digit. The two numbers must be separated by a space. Order of the numbers must 
+be __minimum first__ then the maximum allowable spacing.
+* __-w, --image_width__: An optional flag which the user can explicitly set the image width of 
+the final combined image. (default=None)
+
+**_care should be taken to specify a large enough image width to accomodate the number of 
+digits and the spacing between each digit_
+* __--dataset_regime__: An optional string parameter that specifies which MNIST 
+dataset to retrieve from. Options include: __"train"__ or __"test"__. (default="train")
+* _--image_save_name__: An optional string parameter which the user may use to specify the
+ file name of the final combined image. (default="combined_sequence.png")
+* __--remove_skew__: an optional flag that tells the program to turn of the skew image transformation (default=False)
+* __--make_tight__: an optional flag that tells the program to calculate the extents of the digit images by the 
+minimum/maximum significant pixel values, rather than the MNIST image bounding box. (default=False)
+
+___
+
+Similar to __generate_sequence__ , __generate_skewed_sequence__ can be invoked in a python script in a similar manner as 
+above. The main difference being the two optional flags __--remove_skew__ and __--make_tight__.
+
+Future development of more image transformation may be considered.
+
 ## Contributing
 for pull requests please send an email to f.kazuo.sato@gmail.com
 
